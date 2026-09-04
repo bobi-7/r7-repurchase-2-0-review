@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R7 复购活动 2.0 · 数据复盘</title>
+<style>
+  :root{
+    --ink:#182720; --soft:#44564c; --muted:#75857b; --line:#e5ebe7; --bg:#fcfdfc;
+    --pine:#1f5c45; --pine-dark:#123c2c; --moss:#3f8768; --sand:#d3b06b;
+    --sand-soft:#f8f0df; --rust:#c05a3c; --sky:#3f7d9c;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.45;-webkit-font-smoothing:antialiased;}
+  .sheet{max-width:1180px;margin:0 auto;padding:26px 34px 40px;}
+
+  /* why */
+  .why{background:linear-gradient(135deg,var(--pine-dark),var(--pine) 70%,#2c6b51);color:#fff;border-radius:14px;padding:26px 32px;}
+  .why .k{font-size:12px;letter-spacing:.14em;color:var(--sand);margin-bottom:8px;}
+  .why h1{font-size:30px;line-height:1.15;margin:0 0 10px;font-weight:700;}
+  .why p{font-size:15px;color:rgba(255,255,255,.88);margin:0;max-width:900px;}
+  .why .m{margin-top:14px;font-size:13px;color:rgba(255,255,255,.78);}
+  .why .m b{color:#fff;}
+
+  /* section title */
+  .sec-title{display:flex;align-items:center;gap:10px;margin:20px 0 12px;}
+  .sec-title::before{content:"";width:5px;height:19px;border-radius:3px;background:var(--pine);flex:none;}
+  .sec-title h2{font-size:15px;font-weight:700;margin:0;color:var(--ink);}
+
+  /* profile */
+  .profile{background:#f7fbf8;border:1px solid var(--line);border-top:4px solid var(--moss);border-radius:12px;padding:20px 22px;}
+  .pg{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .pcol .ph{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--muted);margin-bottom:6px;}
+  .prow{display:flex;justify-content:space-between;gap:8px;font-size:13px;padding:4px 0;border-bottom:1px dashed var(--line);}
+  .prow:last-child{border-bottom:0;}
+  .prow .k{color:var(--soft);}
+  .prow .v{font-weight:700;color:var(--pine);}
+  .pnote{font-size:13px;color:var(--soft);margin-top:12px;padding-top:12px;border-top:1px solid var(--line);}
+  .pnote b{color:var(--ink);}
+
+  /* plan cards */
+  .plans{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:14px;margin-top:18px;}
+  .plan{background:#fff;border:1px solid var(--line);border-top:4px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(23,37,31,.04);}
+  .plan.p1{border-top-color:var(--rust);}
+  .plan.p2{border-top-color:var(--pine);}
+  .plan.p3{border-top-color:var(--sand);}
+  .plan .pn{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--muted);}
+  .plan.p1 .pn{color:var(--rust);}
+  .plan.p2 .pn{color:var(--pine);}
+  .plan.p3 .pn{color:var(--sand);}
+  .plan h2{font-size:17px;font-weight:700;margin:6px 0 4px;line-height:1.3;color:var(--ink);}
+  .plan .tl{font-size:12px;color:var(--soft);margin-bottom:14px;}
+  .plan .conv{font-size:13px;color:var(--soft);border-top:1px dashed var(--line);padding-top:12px;margin-top:12px;}
+  .plan .conv b{color:var(--pine);font-size:17px;}
+  .plan .sub{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.08em;margin:12px 0 6px;text-transform:uppercase;}
+  .plan .row{display:flex;justify-content:space-between;gap:10px;font-size:13px;padding:5px 0;border-bottom:1px solid var(--line);}
+  .plan .row:last-child{border-bottom:0;}
+  .plan .row .k{color:var(--muted);}
+  .plan .row .v{font-weight:600;text-align:right;white-space:nowrap;}
+
+  /* buyers */
+  .buyers{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px;}
+  .b{background:#f7fbf8;border:1px solid var(--line);border-radius:11px;padding:15px 17px;border-top:4px solid var(--pine);}
+  .b h3{font-size:14px;font-weight:700;margin:0 0 3px;}
+  .b .ex{font-size:11px;color:var(--muted);margin-bottom:7px;}
+  .b p{font-size:12.5px;margin:0;color:var(--soft);}
+
+  /* conclusion */
+  .concl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;}
+  .c{background:var(--pine-dark);color:#fff;border-radius:12px;padding:18px 20px;}
+  .c .t{font-size:12px;letter-spacing:.1em;color:var(--sand);margin-bottom:8px;font-weight:600;}
+  .c p{font-size:14px;margin:0;line-height:1.5;color:#fff;}
+
+  footer{margin-top:16px;color:var(--muted);font-size:12px;display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="why">
+    <div class="k">R7 复购活动 2.0</div>
+    <h1>硬件促销与季卡转化 · 数据复盘</h1>
+    <p>基于第一次活动的用户画像，锁定稳定付费人群推 R7 相机硬件促销，并向狩猎季用户推季卡，目的是让高活跃稳定付费用户多买设备、让季节性用户 LTV 更高。</p>
+    <div class="m">数据截止 <b>2026-09-03</b> · 范围 <b>美区用户</b></div>
+  </div>
+
+  <div class="sec-title"><h2>目标人群 · 用户分层（画像）</h2></div>
+  <div class="profile">
+    <div class="pg">
+      <div class="pcol">
+        <div class="ph">多设备用户</div>
+        <div class="prow"><span class="k">A 稳定年费</span><span class="v">35 人</span></div>
+        <div class="prow"><span class="k">B No Plan 混合</span><span class="v">39 人</span></div>
+        <div class="prow"><span class="k">C 超级大户</span><span class="v">10 人</span></div>
+        <div class="prow"><span class="k">D 季节性猎人</span><span class="v">6 人</span></div>
+      </div>
+      <div class="pcol">
+        <div class="ph">单设备用户</div>
+        <div class="prow"><span class="k">E1 高活跃年费</span><span class="v">39 人</span></div>
+        <div class="prow"><span class="k">E3 月付高频</span><span class="v">29 人</span></div>
+        <div class="prow"><span class="k">E2 低活跃闲置</span><span class="v">16 人</span></div>
+        <div class="prow"><span class="k">E4 未付费观望</span><span class="v">4 人</span></div>
+      </div>
+    </div>
+    <div class="pnote">单设备用户年付费 <b>$97</b> ≈ 多设备（$607）的 16%；单设备付费套餐占比 <b>91%</b>（多设备 66%），所以对单设备用户「多买设备」比「劝续费」更有增量。</div>
+  </div>
+
+  <div class="sec-title"><h2>三个活动方案</h2></div>
+  <div class="plans">
+    <!-- 方案1 -->
+    <div class="plan p1">
+      <div class="pn">活动方案 1</div>
+      <h2>$64.99 买 R7 相机，加赠 6 个月 Premium</h2>
+      <div class="tl">目标人群：稳定年付用户（A 类 / E1）</div>
+      <div class="conv">转化：<b>共成交 3 单，售出 4 台 R7</b><br>2 单来自 EDM 触达，1 单无法定位。</div>
+      <div class="sub">触达数据</div>
+      <div class="row"><span class="k">第一次 EDM</span><span class="v">打开 31.8% · 点击 2.8%</span></div>
+      <div class="row"><span class="k">第二次 EDM</span><span class="v">打开 29% · 点击 5.8%</span></div>
+      <div class="row"><span class="k">App Push 提醒</span><span class="v">打开 25% · 无点击</span></div>
+    </div>
+
+    <!-- 方案2 -->
+    <div class="plan p2">
+      <div class="pn">活动方案 2</div>
+      <h2>季卡套餐（Plus / Pro）全量推送</h2>
+      <div class="tl">Plus $34.99 · Pro $49.99 · 6 个月</div>
+      <div class="conv">转化：<b>13 个用户成交，25 套</b><br>Plus 7 套 · Pro 18 套（Pro 占 72%）</div>
+      <div class="sub">触达数据</div>
+      <div class="row"><span class="k">08/19 独立站上架</span><span class="v">自然流量 7 单</span></div>
+      <div class="row"><span class="k">08/20 App 弹窗</span><span class="v">22 用户点 · 56 次</span></div>
+      <div class="row"><span class="k">08/25 第一次 EDM</span><span class="v">打开 27.7% · 点 7.3%</span></div>
+    </div>
+
+    <!-- 方案3 -->
+    <div class="plan p3">
+      <div class="pn">活动方案 3</div>
+      <h2>超级大户回馈，赠送 1 台全新 R7</h2>
+      <div class="tl">目标人群：超级大户（头部高年付用户）</div>
+      <div class="conv">转化：<b>2 台相机已寄出</b></div>
+      <div class="sub">触达数据</div>
+      <div class="row"><span class="k">邮件触达</span><span class="v">10 人 · 2 人回复</span></div>
+    </div>
+  </div>
+
+  <!-- 季卡买家分析 -->
+  <div class="sec-title"><h2>季卡买家分群</h2></div>
+  <div class="buyers">
+    <div class="b"><h3>精打细算型</h3><div class="ex">如 2326 · 2763</div><p>频繁开关月卡省钱，季卡「加量不加价」正中痛点。</p></div>
+    <div class="b"><h3>稳定年付型</h3><div class="ex">如 5227 · 158</div><p>续费决策点被季卡截流，需追踪年 LTV。</p></div>
+    <div class="b"><h3>季前扩容型</h3><div class="ex">如 2939 · 24934</div><p>赛季前加硬件 + 套餐，硬件季卡宜打包推。</p></div>
+    <div class="b"><h3>流失被召回</h3><div class="ex">如 1245 · 1517</div><p>闲置 1–2 年后回归，低门槛给了回归台阶。</p></div>
+  </div>
+
+  <!-- 结论 -->
+  <div class="sec-title"><h2>结论</h2></div>
+  <div class="concl">
+    <div class="c"><div class="t">结论 1</div><p>方向成立。成交用户命中「稳定年付 + 有扩设备能力」画像，履约后真实绑定设备，非薅羊毛。</p></div>
+    <div class="c"><div class="t">结论 2</div><p>季卡有效。Pro 占 72%、多设备猎人批量购买（人均 2.6 套），确实拉高了客单价。</p></div>
+    <div class="c"><div class="t">数据说明</div><p>本次归因断点较多、录入数据较零散，部分渠道转化无法精确归因，以上结论基于现有录入数据。</p></div>
+  </div>
+
+  <footer>
+    <div>R7 复购活动 2.0 · 数据复盘</div>
+    <div>数据来源：活动方案文档 · 付费用户情况 · 活动数据 2.0</div>
+    <div>口径：北美时间 · 截至 2026-09-03</div>
+  </footer>
+</div>
+</body>
+</html>
